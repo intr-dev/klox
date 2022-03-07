@@ -1,3 +1,7 @@
 {
-    "universal": { "Name": "Universal", "ScriptURL": "", "Enabled": false }
+    "universal": {
+        "Name": "Universal",
+        "ScriptURL": "https://raw.githubusercontent.com/intr-dev/klox/main/games/universal.lua",
+        "Enabled": false
+    }
 }
