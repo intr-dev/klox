@@ -1,4 +1,10 @@
 {
+    "game1": {
+        "Name": "Tapping Simulator",
+        "PlaceID": 1,
+        "Enabled": false,
+        "ScriptURL": "https://raw.githubusercontent.com/intr-dev/klox/main/games/tappingsim.lua"
+    },
     "universal": {
         "Name": "Universal",
         "ScriptURL": "https://raw.githubusercontent.com/intr-dev/klox/main/games/universal.lua",
