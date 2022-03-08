@@ -33,7 +33,7 @@ CallBacks.urlLoad = function(url)
 end
 
 local HttpService = game:GetService("HttpService")
-local GameListJSON = HttpService:JSONDecode(CallBacks.urlLoad("https://raw.githubusercontent.com/intr-dev/klox/main/gamelist.json"))
+local GameListJSON = HttpService:JSONDecode(game:HttpGet("https://raw.githubusercontent.com/intr-dev/klox/main/gamelist.json"))
 
 CallBacks.GetPlaceID = function()
     return game.PlaceId
