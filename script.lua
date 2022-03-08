@@ -41,6 +41,8 @@ end
 
 CallBacks.Load = function()
     print([[
+
+
         88         88
         88         88
         88         88
@@ -49,6 +51,8 @@ CallBacks.Load = function()
         8888[      88  8b       d8    )888( 
         88`"Yba,   88  "8a,   ,a8"  ,d8" "8b,
         88   `Y8a  88   `"YbbdP"'  8P'     `Y8
+
+
     ]])
     game.StarterGui:SetCore("SendNotification",{
         ["Title"] = "klox",
