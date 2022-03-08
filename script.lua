@@ -41,7 +41,6 @@ end
 
 CallBacks.Load = function()
     print([[
-
         88         88
         88         88
         88         88
@@ -50,19 +49,29 @@ CallBacks.Load = function()
         8888[      88  8b       d8    )888( 
         88`"Yba,   88  "8a,   ,a8"  ,d8" "8b,
         88   `Y8a  88   `"YbbdP"'  8P'     `Y8
-
-        Welcome to klox Exploit!
-
     ]])
+    game.StarterGui:SetCore("SendNotification",{
+        ["Title"] = "klox",
+        ["Text"] = "Welcome to klox Exploit!"
+    })
     wait(1)
-    print("Looking for gamelist...")
+    game.StarterGui:SetCore("SendNotification",{
+        ["Title"] = "klox",
+        ["Text"] = "Checking to gamelist.json ..."
+    })
     wait(3)
     local PlaceID = CallBacks.GetPlaceID()
     if PlaceID == GameListJSON.game1.PlaceID and true == GameListJSON.game1.Enabled then
-        print("Game: "..GameListJSON.game1.Name)
+        game.StarterGui:SetCore("SendNotification",{
+            ["Title"] = "klox",
+            ["Text"] = "Game: "..GameListJSON.game1.Name
+        })
         CallBacks.urlLoad(GameListJSON.game1.ScriptURL)
     elseif true == GameListJSON.universal.Enabled then
-        print(GameListJSON.universal.Name)
+        game.StarterGui:SetCore("SendNotification",{
+            ["Title"] = "klox",
+            ["Text"] = GameListJSON.universal.Name
+        })
         CallBacks.urlLoad(GameListJSON.universal.ScriptURL)
     end
 end
