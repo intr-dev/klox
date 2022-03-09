@@ -4,7 +4,55 @@ for i,v in pairs(game:GetService("Players"):GetPlayers()) do
     table.insert(PLIST,v.DisplayName)
 end
 
-local GUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/intr-dev/klox/main/ui.lua"))()
+local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/UI-Librarys/main/Elerium')))()
+do
+    
+
+	local Window = library:AddWindow("Universal | klox", {
+		main_color = Color3.fromRGB(41, 74, 122),
+		min_size = Vector2.new(300, 400),
+		toggle_key = Enum.KeyCode.P,
+		can_resize = true,
+	})
+	local Tab = Window:AddTab("LocalPlayer")
+    local Tab1 = Window:AddTab("Executor")
+    do
+		local Slider = Tab:AddSlider("Slider", function(x)
+			print(x)
+		end, { -- (options are optional)
+			["min"] = 0, -- Default: 0
+			["max"] = 100, -- Default: 100
+			["readonly"] = false, -- Default: false
+		})
+		Slider:Set(50)
+
+
+		local Dropdown = Tab:AddDropdown("Dropdown", function(object)
+			print(object)
+		end)
+		for i = 1, 9 do
+			Dropdown:Add(tostring(i))
+		end
+
+
+		local Console = Tab1:AddConsole({
+			["y"] = 100,
+			["source"] = "Lua",
+		})
+		Console:Set("-- Enter A Script")
+		print(Console:Get())
+
+		local HA = Tab1:AddHorizontalAlignment()
+		HA:AddButton("Execute", function()
+			loadstring(Console:Get())()
+		end)
+		HA:AddButton("Clear", function()
+			Console:Set("")
+		end)
+    end
+	Tab:Show()
+	library:FormatWindows()
+end
 --[[local UI = GUI:CreateWindow("Universal | klox","made by: intr_dev")
 local LP = UI:addPage("LocalPlayer",1,true,6)
 
@@ -19,47 +67,5 @@ LP:addDropdown("Teleport to Player",PLIST,4,function(value)
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =  game.Players[value].Character.HumanoidRootPart.CFrame * CFrame.new(0,2,1)
 end)
 ]]
-local Window = GUI:AddWindow("Universal | klox", {
-    main_color = Color3.fromRGB(29, 187, 55),
-    min_size = Vector2.new(300, 400),
-    toggle_key = Enum.KeyCode.P,
-    can_resize = true,
-})
-local Tab = Window:AddTab("LocalPlayer")
 
-do
-    Tab:AddLabel("Hello World!")
 
-    local JP = Tab:AddSlider("WalkSpeed", function(x)
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = x
-    end, { -- (options are optional)
-        ["min"] = math.floor(game.Players.LocalPlayer.Character.Humanoid.WalkSpeed), -- Default: 0
-        ["max"] = 1000, -- Default: 100
-        ["readonly"] = false, -- Default: false
-    })
-    JP:Set(math.floor(game.Players.LocalPlayer.Character.Humanoid.WalkSpeed))
-
-    local JP = Tab:AddSlider("JumpPower", function(x)
-        print(x)
-    end, { -- (options are optional)
-        ["min"] = math.floor(game.Players.LocalPlayer.Character.Humanoid.JumpPower), -- Default: 0
-        ["max"] = 1000, -- Default: 100
-        ["readonly"] = false, -- Default: false
-    })
-    JP:Set(math.floor(game.Players.LocalPlayer.Character.Humanoid.JumpPower))
-
-    Tab:AddKeybind("Keybind", function(key)
-        print(key)
-    end, { -- (options are optional)
-        ["standard"] = Enum.KeyCode.RightShift -- Default: RightShift
-    })
-
-    local Dropdown = Tab:AddDropdown("Dropdown", function(object)
-        print(object)
-    end)
-    Dropdown:Add(PLIST)
-
-end
-
-Tab:Show()
-GUI:FormatWindows()
