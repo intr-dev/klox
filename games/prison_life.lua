@@ -5,7 +5,7 @@ for i,v in pairs(game:GetService("Players"):GetPlayers()) do
 end
 
 local GUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/intr-dev/klox/main/ui.lua"))()
-local UI = GUI:CreateWindow("Prison Life","made by: intr_dev")
+local UI = GUI:CreateWindow("Prison Life | klox","made by: intr_dev")
 local LP = UI:addPage("LocalPlayer",1,true,6)
 local KL = UI:addPage("Kill",2,false,6)
 
